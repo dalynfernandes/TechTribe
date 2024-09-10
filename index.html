@@ -4,33 +4,81 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SewerSense</title>
+    <!-- Link to CSS -->
     <link rel="stylesheet" href="styles.css">
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 </head>
 <body>
+    <!-- Header and Navigation -->
     <header>
         <nav class="navbar">
-            <div class="navbar-left">
-                <h1 class="logo">SewerSense</h1>
-            </div>
+            <div class="logo">SewerSense</div>
             <div class="navbar-right">
                 <ul>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Login/Sign Up</a></li>
-                    <li><a href="#">Profile</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#login-signup">Login/Sign Up</a></li>
+                    <li><a href="#profile" class="profile-link">
+                        <img src="profile.jpg" alt="Profile" class="profile-img">
+                    </a></li>
                 </ul>
             </div>
         </nav>
     </header>
 
-    <main>
-        <section class="home-section">
-            <h2>Welcome to SewerSense</h2>
-            <p>Monitoring sewer blockages with cutting-edge AI technology.</p>
-        </section>
-    </main>
+    <!-- Intro Section -->
+    <section class="intro-section">
+        <h1 class="main-heading">SewerSense</h1>
+        <p class="sub-heading">Harnessing Data Intelligence for Smarter Sewer Management</p>
+    </section>
 
-    <footer>
-        <p>&copy; 2024 SewerSense. All rights reserved.</p>
-    </footer>
+    <!-- Divider -->
+    <div class="divider"></div>
+
+    <!-- Section 2: GIS Map Container -->
+    <section class="map-section">
+        <div id="map" class="map-container"></div>
+    </section>
+
+   <!-- Section 3: Data and Charts Container -->
+<section class="data-section">
+    <h2 class="section-heading">Sewage Data Insights</h2>
+    <div id="placeholder-container" class="placeholder-container">
+        <p class="placeholder-text">Please place a dynamic marker in Zone 1 (Manhattan) to view data.</p>
+    </div>
+    <div id="charts-container" class="charts-container hidden">
+        <!-- Container 1: Blockage Data -->
+        <div class="chart-box">
+            <h3>Drainage Blockage</h3>
+            <div class="canvas-wrapper">
+                <canvas id="blockageChart"></canvas>
+            </div>
+        </div>
+        <!-- Container 2: Blockage Over 3 Months -->
+        <div class="chart-box">
+            <h3>Blockage Over Time</h3>
+            <div class="canvas-wrapper">
+                <canvas id="blockageOverTimeChart"></canvas>
+            </div>
+        </div>
+        <!-- Container 3: Status Indicator -->
+        <div class="chart-box">
+            <h3>Status Indicator</h3>
+            <div class="status-indicator-container">
+                <div class="status-indicator" id="status-indicator"></div>
+                <span id="status-text">Status: Operational</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+    <!-- Link to JavaScript -->
+    <script src="script.js"></script>
 </body>
 </html>

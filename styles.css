@@ -3,25 +3,26 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'Space Grotesk', sans-serif; /* Default font for body text */
 }
 
 body {
-    background-color: #f9f9f9;
+    background-color: #081F34; /* Set background color to third color */
     color: #333;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
 }
 
+/* Header and Navigation */
 header {
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #081F34; /* Set background to third color */
     width: 100%;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .navbar {
@@ -29,17 +30,26 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 15px 30px;
+    color: #CFFF81; /* Set to second color */
 }
 
 .logo {
-    font-weight: bold;
+    font-family: 'Archivo Black', sans-serif; /* Use Archivo Black for headings */
+    font-weight: 400;
     font-size: 24px;
-    color: #222;
+    color: #CFFF81; /* Set to second color */
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
 }
 
 .navbar-right ul {
     display: flex;
+    align-items: center;
     list-style: none;
+    margin-left: auto;
 }
 
 .navbar-right ul li {
@@ -48,45 +58,186 @@ header {
 
 .navbar-right ul li a {
     text-decoration: none;
-    color: #555;
-    font-weight: bold;
+    color: #CFFF81; /* Set to second color */
+    font-weight: 600;
     font-size: 16px;
     transition: color 0.3s ease;
 }
 
 .navbar-right ul li a:hover {
-    color: #000;
+    color: #fff;
 }
 
-.main {
-    margin-top: 100px;
+/* Profile Image */
+.profile-link {
+    display: inline-block;
 }
 
-.home-section {
-    padding: 80px 30px;
+.profile-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;  /* Makes the image circular */
+    border: 2px solid #CFFF81; /* Minimal border using second color */
+    object-fit: cover; /* Ensures the image fits well inside the circle */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Minimal shadow for a modern look */
+}
+
+/* Intro Section */
+.intro-section {
+    padding: 100px 20px 60px;
     text-align: center;
 }
 
-.home-section h2 {
-    font-size: 32px;
-    margin-bottom: 20px;
-    color: #333;
+.main-heading {
+    font-family: 'Archivo Black', sans-serif; /* Use Archivo Black for headings */
+    font-size: 48px;
+    font-weight: 400;
+    color: #CFFF81; /* Set to second color */
+    margin-bottom: 10px;
 }
 
-.home-section p {
+.sub-heading {
+    font-family: 'Space Grotesk', sans-serif; /* Use Space Grotesk for body text */
     font-size: 18px;
-    color: #666;
+    font-weight: 400;
+    color: #CFFF81; /* Set to second color */
 }
 
-footer {
-    background-color: #fff;
+/* Divider */
+.divider {
+    height: 4px; /* Height of the divider */
+    background-color: #CFFF81; /* Set to second color */
+    margin: 20px 0; /* Space around the divider */
+}
+
+/* Section 2: GIS Map Container */
+.map-section {
+    background-color: #E1DFD9; /* Set background color */
+    padding: 40px 20px;
+    height: 500px; /* Ensure it has height */
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.map-container {
+    height: 100%; /* Full height for map */
+}
+
+
+/* Status Indicator in Popup */
+.status-indicator-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.status-indicator {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #ff0000; /* Default color */
+    border: 2px solid #000000; /* Black border */
+    animation: flash 1.5s infinite; /* Flashing effect */
+}
+
+@keyframes flash {
+    0%, 100% {
+        background-color: #ff0000; /* Red */
+    }
+    50% {
+        background-color: #ffff00
+    }
+}
+
+/* Section 3 Placeholder */
+/* Section 3: Data and Charts Container */
+.data-section {
+    background-color: #F9F9F9; /* Light background for the data section */
+    padding: 40px 20px; /* Increased padding for better spacing */
     text-align: center;
-    padding: 20px;
-    margin-top: auto;
-    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
-    font-size: 14px;
+    border-radius: 10px;
+    border: 2px solid #CFFF81; /* Second color */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
 
-footer p {
-    color: #aaa;
+.section-heading {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 28px;
+    color: #081F34; /* Third color */
+    margin-bottom: 20px;
+}
+
+.placeholder-container {
+    background-color: #E1DFD9; /* Background color for placeholder */
+    padding: 40px;
+    border-radius: 10px;
+    border: 2px solid #CFFF81; /* Second color */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    max-width: 1200px;
+    margin: 0 auto;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.placeholder-text {
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 20px;
+    color: #081F34; /* Third color */
+}
+
+.hidden {
+    display: none;
+}
+
+/* Transition effect for placeholder to charts */
+.placeholder-container.hidden {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.charts-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    margin-top: 20px;
+}
+
+.charts-container.visible {
+    opacity: 1;
+}
+
+.chart-box {
+    width: 100%;
+    max-width: 350px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    border: 2px solid #CFFF81; /* Second color */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Hover effect */
+    margin-bottom: 20px; /* Space between charts */
+}
+
+.chart-box:hover {
+    transform: scale(1.05); /* Slight scale on hover to simulate 3D effect */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* Deeper shadow on hover */
+}
+
+.chart-box h3 {
+    font-size: 20px;
+    font-family: 'Archivo Black', sans-serif;
+    color: #081F34; /* Third color */
+    margin-bottom: 10px;
+}
+
+.canvas-wrapper {
+    position: relative;
+    height: 300px; /* Increased height for better visibility */
+    margin-top: 20px;
+}
+
+canvas {
+    max-width: 100%;
+    border-radius: 10px;
 }
