@@ -1,0 +1,36 @@
+import pandas as pd
+
+# Load your dataset
+file_path = '/Volumes/Seagate/New_York_City_Climate_Projections__Temperature_and_Precipitation_20240910.csv'  # Replace with the actual path
+data = pd.read_csv(file_path)
+
+# Filter rows that contain '2030s' for temperature projections
+data_2030s = data[data['Year'].str.contains("2030s", na=False)]
+
+# Function to apply the formula for projected temperature increases
+def calculate_future_temperatures(row, baseline_temp):
+    central_increase = 2  # +2°F
+    lower_bound = 2.7  # +2.7°F
+    upper_bound = 3.9  # +3.9°F
+    extreme_scenario = 4.7  # +4.7°F
+
+    # Applying the formula to calculate the future temperatures
+    central_temp = baseline_temp + central_increase
+    lower_temp = baseline_temp + lower_bound
+    upper_temp = baseline_temp + upper_bound
+    extreme_temp = baseline_temp + extreme_scenario
+
+    return pd.Series([central_temp, lower_temp, upper_temp, extreme_temp],
+                     index=['Central Projection', 'Lower Bound', 'Upper Bound', 'Extreme Scenario'])
+
+# Assuming the baseline temperature is in the 'Mean Temperature' column
+# Applying the calculation to the 2030s data
+data_2030s[['Central Projection', 'Lower Bound', 'Upper Bound', 'Extreme Scenario']] = data_2030s.apply(
+    lambda row: calculate_future_temperatures(float(row['Mean Temperature'].replace('°F', '')), baseline_temp=55.2), axis=1)
+
+# Saving the updated data to a new CSV file
+output_file = 'updated_temperature_projections.csv'
+data_2030s.to_csv(output_file, index=False)
+
+# Display message confirming CSV creation
+print(f"Updated CSV file created: {output_file}")
